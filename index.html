@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./md5.js"></script>
+  </head>
+  <body id="body">
+    <div class="main">
+      <div class="content">
+        原文：<input type="text" id="pwd" autocomplete="off" /> <br /><br />
+        密文：<textarea id="mw" cols="32" rows="2"></textarea> <br /><br />
+        <button type="submit" onclick="add()" >加密</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const Width = window.body.scrollWidth;
+    const body = document.getElementById("body");
+    body.style.width = Width + "px";
+
+    function add() {
+      var pwd = document.getElementById("pwd").value;
+      if (pwd === "") {
+        alert("请输入需要加密的内容")
+        return
+      } else {
+        var mw = document.getElementById("mw");
+        var password = MD5(pwd);
+        mw.value = password;
+      }
+    }
+  </script>
+  </body>
+</html>
